@@ -4,8 +4,13 @@ import { MealCode, MealCodeUtil, Neis } from './lib/neis';
 import Container from 'typedi';
 import { DotEnv } from './config/dotenv';
 import { GoogleMailer } from './lib/mail';
-import dayjs from 'dayjs';
 import { emails } from './data';
+import dayjs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
+
+dayjs.extend(utc)
+dayjs.extend(timezone)
 
 const dotEnv = Container.get(DotEnv);
 
@@ -13,10 +18,8 @@ const schoolCode = dotEnv.get('SCHOOL_CODE');
 const officeCode = dotEnv.get('OFFICE_CODE');
 const neis = new Neis(schoolCode, officeCode);
 
-const hour = dayjs().get('hour');
+const hour = dayjs().tz('Asia/Seoul').get('hour');
 let mealCode: MealCode | null = null;
-
-console.log(hour, dayjs().toString());
 
 if (hour <= 7) {
   mealCode = MealCode.Breakfast;

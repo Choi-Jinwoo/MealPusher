@@ -3,7 +3,11 @@ import { URLLib } from './url';
 import Container from 'typedi';
 import fetch from 'node-fetch';
 import dayjs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
 
+dayjs.extend(utc)
+dayjs.extend(timezone)
 
 export enum MealCode {
   Breakfast = 1,
@@ -40,6 +44,7 @@ export class Neis {
 
   async fetchDish(year: number, month: number, date: number, mealCode: MealCode): Promise<string[]> {
     const mealDate = dayjs()
+      .tz('Asia/Seoul')
       .set('year', year)
       .set('month', month)
       .set('date', date)
