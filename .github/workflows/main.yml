@@ -21,5 +21,6 @@ jobs:
           SCHOOL_CODE: ${{ secrets.SCHOOL_CODE }}
           GOOGLE_EMAIL: ${{ secrets.GOOGLE_EMAIL }}
           GOOGLE_PW: ${{ secrets.GOOGLE_PW }}
+      - run: echo ${{ secrets.NEIS_KEY }}
       - run: npm run build
       - run: npm run start
