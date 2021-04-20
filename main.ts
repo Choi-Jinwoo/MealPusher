@@ -16,6 +16,8 @@ const neis = new Neis(schoolCode, officeCode);
 const hour = dayjs().get('hour');
 let mealCode: MealCode | null = null;
 
+console.log(hour, dayjs().toString());
+
 if (hour <= 7) {
   mealCode = MealCode.Breakfast;
 } else if (hour <= 12) {
