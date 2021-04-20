@@ -14,15 +14,6 @@ jobs:
         with:
           node-version: "12.x"
 
-      - name: create environment file
-        run: |
-          touch .env
-          echo NEIS_KEY=${{ secrets.NEIS_KEY }} >> .env
-          echo SCHOOL_CODE=${{ secrets.SCHOOL_CODE }} >> .env
-          echo OFFICE_CODE=${{ secrets.OFFICE_CODE }} >> .env
-          echo GOOGLE_EMAIL=${{ secrets.GOOGLE_EMAIL }} >> .env
-          echo GOOGLE_PW=${{ secrets.GOOGLE_PW }} >> .env
-
       - run: npm install
       - run: npm run build
       - run: npm run start
