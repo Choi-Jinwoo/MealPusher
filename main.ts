@@ -19,6 +19,10 @@ const officeCode = dotEnv.get('OFFICE_CODE');
 const neis = new Neis(schoolCode, officeCode);
 
 const hour = dayjs().tz('Asia/Seoul').get('hour');
+
+console.log(hour, dayjs().tz('Asia/Seoul'));
+
+
 let mealCode: MealCode | null = null;
 
 if (hour <= 7) {
