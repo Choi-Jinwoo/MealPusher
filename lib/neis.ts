@@ -44,7 +44,6 @@ export class Neis {
 
   async fetchDish(year: number, month: number, date: number, mealCode: MealCode): Promise<string[]> {
     const mealDate = dayjs()
-      .tz('Asia/Seoul')
       .set('year', year)
       .set('month', month)
       .set('date', date)

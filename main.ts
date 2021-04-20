@@ -18,10 +18,11 @@ const schoolCode = dotEnv.get('SCHOOL_CODE');
 const officeCode = dotEnv.get('OFFICE_CODE');
 const neis = new Neis(schoolCode, officeCode);
 
-const hour = dayjs().tz('Asia/Seoul').get('hour');
-
-console.log(hour, dayjs().tz('Asia/Seoul'));
-
+const today = dayjs().tz('Asia/Seoul')
+const year = today.get('year');
+const month = today.get('month');
+const date = today.get('date');
+const hour = today.get('hour');
 
 let mealCode: MealCode | null = null;
 
@@ -34,7 +35,7 @@ if (hour <= 7) {
 }
 
 if (mealCode !== null) {
-  neis.fetchDish(2021, 3, 20, MealCode.Breakfast)
+  neis.fetchDish(year, month, date, mealCode)
     .then((dishes) => {
       const user = dotEnv.get('GOOGLE_EMAIL');
       const pass = dotEnv.get('GOOGLE_PW');
