@@ -1,9 +1,9 @@
 name: Send Dish Mail
 
 on:
-  push:
-    branches:
-      - 'master'
+  schedule:
+  - cron: "28 10,3,11 * * *"
+
     
 jobs:
   build:

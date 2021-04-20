@@ -63,8 +63,6 @@ export class Neis {
       MLSV_YMD: mealDate,
     });
 
-    console.log(urlLib.url);
-
     const response = await fetch(urlLib.url);
     const responseJson = await response.json();
     if (responseJson['mealServiceDietInfo'] === undefined) {

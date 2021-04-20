@@ -32,15 +32,10 @@ export abstract class Mailer {
 
   dishHTMLTemplate(dishes: string[], mealCode: MealCode): string {
     const strMealCode = MealCodeUtil.toString(mealCode);
-    console.log(dishes);
-
-
     const html =
       `<h3>오늘의 ${strMealCode}입니다</h3>
 
       ${dishes.map(dish => `<p>${dish}</p>`).join('')}`
-
-    console.log(html);
 
     return html;
   }
