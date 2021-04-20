@@ -17,15 +17,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Test secrets
-        run: echo ${{ secrets.NEIS_KEY }}
-        env:
-          NEIS_KEY: ${{ secrets.NEIS_KEY }}
-          OFFICE_CODE: ${{ secrets.OFFICE_CODE }}
-          SCHOOL_CODE: ${{ secrets.SCHOOL_CODE }}
-          GOOGLE_EMAIL: ${{ secrets.GOOGLE_EMAIL }}
-          GOOGLE_PW: ${{ secrets.GOOGLE_PW }}
-
       - name: Build Typescript
         run: npm run build
 
