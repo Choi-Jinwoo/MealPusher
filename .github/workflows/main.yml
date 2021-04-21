@@ -2,7 +2,7 @@ name: Send Dish Mail
 
 on:
   schedule:
-  - cron: "28 10,3,11 * * *"
+  - cron: "15 2 * * *"
 
     
 jobs:
